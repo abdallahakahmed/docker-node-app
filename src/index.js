@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const os = require("os");
 
 // Connect DB
 const DB_USER = "root";
@@ -15,8 +16,9 @@ mongoose
 
 const PORT = 4000;
 const app = express();
-app.get("/", (req, res) =>
-  res.send("<h1> Hello Docker from AWS, using docker hun</h1>")
-);
+app.get("/", (req, res) => {
+  console.log(`traffic from ${os.hostname}`);
+  res.send("<h1> Hello Docker!</h1>");
+});
 
 app.listen(PORT, () => console.log(`App is running on port: ${PORT}`));

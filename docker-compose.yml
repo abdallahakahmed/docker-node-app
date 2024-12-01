@@ -1,9 +1,6 @@
 services:
   application:
-    container_name: application-container
     image: abdallahaahmed/node-app-docker
-    ports:
-      - "4000:4000"
     env_file:
       - ./.env
     depends_on:
