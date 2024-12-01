@@ -15,6 +15,6 @@ mongoose
 
 const PORT = 4000;
 const app = express();
-app.get("/", (req, res) => res.send("<h1> Hello Docker API dev</h1>"));
+app.get("/", (req, res) => res.send("<h1> Hello Docker from AWS</h1>"));
 
 app.listen(PORT, () => console.log(`App is running on port: ${PORT}`));
