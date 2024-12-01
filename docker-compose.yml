@@ -1,0 +1,30 @@
+services:
+  application:
+    container_name: application-container
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./.env
+    depends_on:
+      - mongo
+      - redis
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+  redis:
+    image: redis
+    
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - application
+
+    
