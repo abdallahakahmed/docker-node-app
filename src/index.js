@@ -18,7 +18,7 @@ const PORT = 4000;
 const app = express();
 app.get("/", (req, res) => {
   console.log(`traffic from ${os.hostname}`);
-  res.send("<h1> Hello Docker!</h1>");
+  res.send("<h1> Hello Docker! by using watchtower</h1>");
 });
 
 app.listen(PORT, () => console.log(`App is running on port: ${PORT}`));
